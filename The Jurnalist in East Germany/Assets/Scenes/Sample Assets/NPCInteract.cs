@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class NPCInteract : MonoBehaviour
+public class NPCInteract : MonoBehaviour, NPCManager, NPCText<string>
 {
-    private string NPCText = "This is an NPC text";
+    public string NPCText = "Commit Sudoku";
+    public Text displayText;
     public GameObject popUp;
     public GameObject interactionLayout;
 
@@ -16,8 +18,8 @@ public class NPCInteract : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        popUp.SetActive(true);
-        interactionLayout.SetActive(true);
+        LayoutOn();
+        setText(NPCText);
     }
 
     void OnTriggerExit2D(Collider2D col)
@@ -26,4 +28,20 @@ public class NPCInteract : MonoBehaviour
         interactionLayout.SetActive(false);
     }
 
+    public void LayoutOn()
+    {
+        popUp.SetActive(true);
+        interactionLayout.SetActive(true);
+    }
+
+    public void LayoutOff()
+    {
+        popUp.SetActive(false);
+        interactionLayout.SetActive(false);
+    }
+
+    public void setText(string text)
+    {
+        displayText.text = NPCText;
+    }
 }
