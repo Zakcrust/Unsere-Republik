@@ -9,28 +9,45 @@ public class NPCInteract : MonoBehaviour, NPCManager, NPCText<string>
     public Text displayText;
     public GameObject popUp;
     public GameObject interactionLayout;
-
+    public bool positiveAnswer;
+    public bool negativeAnswer;
     void Start()
     {
         popUp.SetActive(false);
         interactionLayout.SetActive(false);
+        if(positiveAnswer && negativeAnswer)
+        {
+            positiveAnswer = true;
+            negativeAnswer = false;
+        }
+        else if(!(positiveAnswer && negativeAnswer))
+        {
+            positiveAnswer = true;
+            negativeAnswer = false;
+        }
+    }
+
+    void OnTriggerStay2D(Collider2D col)
+    {
+        if(Input.GetKey(KeyCode.Space))
+        {
+            LayoutOn();
+            setText(NPCText);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        LayoutOn();
-        setText(NPCText);
+        popUp.SetActive(true);
     }
 
     void OnTriggerExit2D(Collider2D col)
     {
-        popUp.SetActive(false);
-        interactionLayout.SetActive(false);
+        LayoutOff();
     }
 
     public void LayoutOn()
     {
-        popUp.SetActive(true);
         interactionLayout.SetActive(true);
     }
 
@@ -44,4 +61,5 @@ public class NPCInteract : MonoBehaviour, NPCManager, NPCText<string>
     {
         displayText.text = NPCText;
     }
+
 }
