@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface NPCManager
+public interface NPCInteractInterface
 {
    void OnTrigger();
    void OffTrigger();
    void ButtonOn();
 }
 
-public interface NPCText<T>
+public interface NPCInteractText<T>
 {
     void setText(T text);
     void setPositiveText(T text);

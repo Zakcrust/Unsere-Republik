@@ -3,17 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NPCInteract : MonoBehaviour, NPCManager, NPCText<string>
+public class NPCInteract : MonoBehaviour, NPCInteractInterface, NPCInteractText<string>
 {
     public string[] NPCText;
-    public string[] PositiveAnswers;
-    public string[] NegativeAnswers;
+    public string PositiveAnswer;
+    public string NegativeAnswer;
     public Text displayText, positiveText, negativeText;
     public GameObject popUp;
     public GameObject interactionLayout;
     public GameObject buttonLayout;
-    public bool positiveAnswer;
-    public bool negativeAnswer;
+    public int firstFeedbackAtId;
     public bool isAnswered = false;
     public int currentTextId = 0;
     
@@ -22,41 +21,40 @@ public class NPCInteract : MonoBehaviour, NPCManager, NPCText<string>
         popUp.SetActive(false);
         interactionLayout.SetActive(false);
         buttonLayout.SetActive(false);
-        if(positiveAnswer && negativeAnswer)
-        {
-            positiveAnswer = true;
-            negativeAnswer = false;
-        }
-        else if(!(positiveAnswer && negativeAnswer))
-        {
-            positiveAnswer = true;
-            negativeAnswer = false;
-        }
     }
 
     void OnTriggerStay2D(Collider2D col)
     {
+        if(Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            if(currentTextId < NPCText.Length)
+            {
+                currentTextId ++;
+                displayTextById(currentTextId);
+
+                if(currentTextId == NPCText.Length)
+                {
+                Invoke("finishConversation",2);
+                }  
+            }
+              
+            if(currentTextId == firstFeedbackAtId)
+            {
+                ButtonOn();
+            }
+        }
+
         if(isAnswered)
             return;
         if(Input.GetKey(KeyCode.Space))
         {
             OnTrigger();
             displayTextById(currentTextId);
-            ButtonOn();
+            setPositiveText(PositiveAnswer);
+            setNegativeText(NegativeAnswer);
         }
-        /* if(Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            if(currentTextId < NPCText.Length)
-            {
-                currentTextId ++;
-                displayTextById(currentTextId);
-            }    
-            if(currentTextId == NPCText.Length -1)
-            {
-                ButtonOn();
-            }
-        }
-        else if(Input.GetKeyDown(KeyCode.DownArrow))
+        
+        /* else if(Input.GetKeyDown(KeyCode.DownArrow))
         {
             if(currentTextId > 0)
             {
@@ -102,17 +100,32 @@ public class NPCInteract : MonoBehaviour, NPCManager, NPCText<string>
     public void displayTextById(int id)
     {
         setText(NPCText[id]);
-        setPositiveText(PositiveAnswers[id]);
-        setNegativeText(NegativeAnswers[id]);
     }
 
-    public void Answered()
-    {   if(currentTextId < NPCText.Length - 1)
+    public void Answered(bool isPositive)
+    {   
+        /* if(currentTextId < NPCText.Length - 1)
         {
             currentTextId++;
             displayTextById(currentTextId);
             return;
+        } */
+        if(isPositive)
+        {
+            finishConversation();
         }
+        else
+        {
+            isAnswered = true;
+            currentTextId++;
+            displayTextById(currentTextId);
+            buttonLayout.SetActive(false);
+        }
+        
+    }
+
+    private void finishConversation()
+    {
         isAnswered = true;
         interactionLayout.SetActive(false);
         buttonLayout.SetActive(false);

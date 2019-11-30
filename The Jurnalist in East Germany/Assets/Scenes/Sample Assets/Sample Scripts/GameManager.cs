@@ -6,7 +6,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     private NPCInteract currentNPC;
-    private int score = 0;
+    private int PositiveScore = 0;
+    private int NegativeScore = 0;
     void Start()
     {
         if(instance == null)
@@ -23,16 +24,16 @@ public class GameManager : MonoBehaviour
 
     public void addScore()
     {
-        score ++;
-        Debug.Log(score);
-        currentNPC.Answered();
+        PositiveScore ++;
+        Debug.Log("Positive Score : "+ PositiveScore);
+        currentNPC.Answered(true);
     }
 
     public void substractScore()
     {
-        score --;
-        Debug.Log(score);
-        currentNPC.Answered();
+        NegativeScore ++;
+        Debug.Log("Negative Score : "+ NegativeScore);
+        currentNPC.Answered(false);
     }
 
     public void setCurrentNPC(NPCInteract NPC)

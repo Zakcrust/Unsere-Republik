@@ -36,26 +36,45 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.RightArrow))
         {
+            if(animator.GetBool("isInteracting"))
+                return;
             velocity.x += speed;
             animator.SetBool("isMoving",true);
-            playerSprite.flipX = false;
+            playerSprite.flipX = true;
         }
 
         else if (Input.GetKey(KeyCode.LeftArrow))
         {
+            if(animator.GetBool("isInteracting"))
+                return;
             velocity.x -= speed;
             animator.SetBool("isMoving",true);
-            playerSprite.flipX = true;
+            playerSprite.flipX = false;
         }
 
         else
         {
             velocity.x = 0.0f;
+            
+            if(animator.GetBool("isInteracting"))
+                return;
             animator.SetBool("isMoving",false);
         }
 
+        if(Input.GetKeyDown(KeyCode.Z))
+        {
+            animator.SetBool("isInteracting",true);
+            animator.SetTrigger("InteractAnim");
+            Invoke("finishInteract", 1);
+        }
 
         rigidBody2d.velocity += velocity;
+
+    }
+
+    private void finishInteract()
+    {
+        animator.SetBool("isInteracting",false);
     }
 
 }
