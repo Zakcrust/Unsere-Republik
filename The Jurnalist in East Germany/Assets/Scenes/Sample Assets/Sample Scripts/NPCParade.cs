@@ -18,9 +18,9 @@ public class NPCParade : MonoBehaviour
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
         NPCSprite.flipX = true;
-        speed = new Vector2(2,0);
+        speed = new Vector2(1,0);
         rigidbody2D.velocity = speed;
-        coroutine   = TurnAfter(1);
+        coroutine   = TurnAfter(3);
         StartCoroutine(coroutine);
         
     }
@@ -35,7 +35,5 @@ public class NPCParade : MonoBehaviour
             rigidbody2D.velocity = speed;
             yield return new WaitForSeconds(time);
         }
-        
-        
     }
 }

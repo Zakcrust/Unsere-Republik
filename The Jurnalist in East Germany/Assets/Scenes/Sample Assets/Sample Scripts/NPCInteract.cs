@@ -15,7 +15,7 @@ public class NPCInteract : MonoBehaviour, NPCInteractInterface, NPCInteractText<
     public int firstFeedbackAtId;
     public bool isAnswered = false;
     public int currentTextId = 0;
-    
+    private bool isIterating = false;
     void Start()
     {
         popUp.SetActive(false);
@@ -29,8 +29,13 @@ public class NPCInteract : MonoBehaviour, NPCInteractInterface, NPCInteractText<
         {
             if(currentTextId < NPCText.Length)
             {
-                currentTextId ++;
-                displayTextById(currentTextId);
+                if(!isIterating)
+                {
+                    currentTextId ++;
+                    StartCoroutine(iterateText(NPCText[currentTextId]));
+                }
+                
+                //displayTextById(currentTextId);
 
                 if(currentTextId == NPCText.Length)
                 {
@@ -45,11 +50,15 @@ public class NPCInteract : MonoBehaviour, NPCInteractInterface, NPCInteractText<
         }
 
         if(isAnswered)
+        {
             return;
-        if(Input.GetKey(KeyCode.Space))
+        }
+            
+        if(Input.GetKey(KeyCode.Z))
         {
             OnTrigger();
-            displayTextById(currentTextId);
+            //displayTextById(currentTextId);
+            StartCoroutine(iterateText(NPCText[currentTextId]));
             setPositiveText(PositiveAnswer);
             setNegativeText(NegativeAnswer);
         }
@@ -93,6 +102,18 @@ public class NPCInteract : MonoBehaviour, NPCInteractInterface, NPCInteractText<
         displayText.text = text;
     }
 
+    public IEnumerator iterateText(string text)
+    {
+        isIterating = true;
+        string temp = "";
+     foreach(char a in text)
+     {
+         temp+= a;
+         setText(temp);
+         yield return new WaitForSeconds(0.02f);
+     }
+        isIterating = false;
+    }
     public void ButtonOn()
     {
         buttonLayout.SetActive(true);
@@ -118,7 +139,8 @@ public class NPCInteract : MonoBehaviour, NPCInteractInterface, NPCInteractText<
         {
             isAnswered = true;
             currentTextId++;
-            displayTextById(currentTextId);
+            //displayTextById(currentTextId);
+            StartCoroutine(iterateText(NPCText[currentTextId]));
             buttonLayout.SetActive(false);
         }
         

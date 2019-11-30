@@ -14,4 +14,5 @@ public interface NPCInteractText<T>
     void setText(T text);
     void setPositiveText(T text);
     void setNegativeText(T text);
+    IEnumerator iterateText(T text);
 }
