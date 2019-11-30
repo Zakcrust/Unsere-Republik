@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    private NPCInteract currentNPC;
     private int score = 0;
     void Start()
     {
@@ -24,11 +25,19 @@ public class GameManager : MonoBehaviour
     {
         score ++;
         Debug.Log(score);
+        currentNPC.Answered();
     }
 
     public void substractScore()
     {
         score --;
         Debug.Log(score);
+        currentNPC.Answered();
+    }
+
+    public void setCurrentNPC(NPCInteract NPC)
+    {
+        currentNPC = NPC;
+        Debug.Log(currentNPC);
     }
 }

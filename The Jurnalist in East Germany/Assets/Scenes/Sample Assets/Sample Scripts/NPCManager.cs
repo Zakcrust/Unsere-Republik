@@ -4,11 +4,14 @@ using UnityEngine;
 
 public interface NPCManager
 {
-   void LayoutOn();
-   void LayoutOff();
+   void OnTrigger();
+   void OffTrigger();
+   void ButtonOn();
 }
 
 public interface NPCText<T>
 {
     void setText(T text);
+    void setPositiveText(T text);
+    void setNegativeText(T text);
 }
