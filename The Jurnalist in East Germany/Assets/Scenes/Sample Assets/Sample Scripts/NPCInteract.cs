@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class NPCInteract : MonoBehaviour, NPCInteractInterface, NPCInteractText<string>
 {
     public string[] NPCText;
+    public string answeredNPCText;
     public string PositiveAnswer;
     public string NegativeAnswer;
     public Text displayText, positiveText, negativeText;
@@ -27,6 +28,17 @@ public class NPCInteract : MonoBehaviour, NPCInteractInterface, NPCInteractText<
     {
         if(Input.GetKeyDown(KeyCode.UpArrow))
         {
+            if(currentTextId == 0 && isAnswered)
+                return;
+            if(currentTextId == firstFeedbackAtId)
+            {
+                ButtonOn();
+                return;
+            }
+            if(currentTextId == NPCText.Length - 1)
+            {
+                interactionLayout.SetActive(false);
+            }
             if(currentTextId < NPCText.Length)
             {
                 if(!isIterating)
@@ -43,24 +55,29 @@ public class NPCInteract : MonoBehaviour, NPCInteractInterface, NPCInteractText<
                 }  
             }
               
-            if(currentTextId == firstFeedbackAtId)
-            {
-                ButtonOn();
-            }
+            
         }
 
-        if(isAnswered)
-        {
-            return;
-        }
+        
             
         if(Input.GetKey(KeyCode.Z))
         {
-            OnTrigger();
-            //displayTextById(currentTextId);
-            StartCoroutine(iterateText(NPCText[currentTextId]));
-            setPositiveText(PositiveAnswer);
-            setNegativeText(NegativeAnswer);
+            if(isAnswered)
+            {
+                interactionLayout.SetActive(true);
+                //StartCoroutine(iterateText(answeredNPCText));
+                setText(answeredNPCText);
+            }
+            if(!interactionLayout.activeInHierarchy)
+            {
+                OnTrigger();
+                currentTextId = 0;
+                //displayTextById(currentTextId);
+                StartCoroutine(iterateText(NPCText[currentTextId]));
+                setPositiveText(PositiveAnswer);
+                setNegativeText(NegativeAnswer);
+            }
+            
         }
         
         /* else if(Input.GetKeyDown(KeyCode.DownArrow))
@@ -110,7 +127,7 @@ public class NPCInteract : MonoBehaviour, NPCInteractInterface, NPCInteractText<
      {
          temp+= a;
          setText(temp);
-         yield return new WaitForSeconds(0.02f);
+         yield return new WaitForSeconds(0.01f);
      }
         isIterating = false;
     }

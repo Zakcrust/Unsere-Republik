@@ -10,15 +10,25 @@ public class CameraMovement : MonoBehaviour
         Vector3 offset = transform.position - player.transform.position;
         bool changeInX = false;
         Vector3 newCameraPosition = transform.position;
-        if (offset.x > 6)
+        if (offset.x > 4)
         {
             changeInX = true;
-            newCameraPosition.x = (player.transform.position.x + offset.x) - (offset.x - 6);
+            if(transform.position.x > -22)
+                newCameraPosition.x = (player.transform.position.x + offset.x) - (offset.x - 4);
+            else
+            {
+                newCameraPosition = transform.position;
+            }
         }
-        else if (offset.x < -6)
+        else if (offset.x < -4)
         {
             changeInX = true;
-            newCameraPosition.x = (player.transform.position.x + offset.x) - (offset.x + 6);
+            if(transform.position.x < 16)
+                newCameraPosition.x = (player.transform.position.x + offset.x) - (offset.x + 4);
+                else
+            {
+                newCameraPosition = transform.position;
+            }
         }
         if (!changeInX)
         {

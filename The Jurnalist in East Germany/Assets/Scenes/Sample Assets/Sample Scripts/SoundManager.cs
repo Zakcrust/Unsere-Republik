@@ -19,4 +19,9 @@ public class SoundManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
     }
+
+    void Update()
+    {
+        
+    }
 }

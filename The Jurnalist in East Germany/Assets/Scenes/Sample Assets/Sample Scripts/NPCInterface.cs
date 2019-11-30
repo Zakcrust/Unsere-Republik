@@ -10,4 +10,5 @@ public interface NPCInterface
 public interface NPCText<T>
 {
     void setText(T text);
+    IEnumerator iterateText(T text);
 }
