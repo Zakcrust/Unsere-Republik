@@ -150,15 +150,19 @@ public class NPCInteract : MonoBehaviour, NPCInteractInterface, NPCInteractText<
         } */
         if(isPositive)
         {
+            Debug.Log("Conversation Finished");
             finishConversation();
         }
         else
         {
             isAnswered = true;
             currentTextId++;
+            buttonLayout.SetActive(false);
+            if(currentTextId > NPCText.Length - 1)
+            return;
             //displayTextById(currentTextId);
             StartCoroutine(iterateText(NPCText[currentTextId]));
-            buttonLayout.SetActive(false);
+            
         }
         
     }

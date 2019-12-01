@@ -13,7 +13,7 @@ public class CinematicInteract : MonoBehaviour, NPCInteractInterface, NPCText<st
    public string[] NPCText;
    public CameraMovement cameraMovement;
    public string positiveAnswer, negativeAnswer;
-   public GameObject interactionLayout;
+   public GameObject interactionLayout, blackPanelLayout;
    public GameObject buttonLayout, popUp;
    public Text displayedText,positiveText,negativeText;
 
@@ -40,6 +40,7 @@ public class CinematicInteract : MonoBehaviour, NPCInteractInterface, NPCText<st
                 if(currentTextId == eventTriggerId)
                 {
                     ButtonOn();
+                    blackPanelLayout.SetActive(true);
                 }
                 if(currentTextId == NPCText.Length)
                 {
@@ -53,23 +54,41 @@ public class CinematicInteract : MonoBehaviour, NPCInteractInterface, NPCText<st
     {
         if(Input.GetKeyDown(KeyCode.Z))
         {
+            if(GameManager.instance.InteractPoint < PlayerObjective.instance.interactPointRequired)
+            {
+                if(!isIterating)
+                {
+                    interactionLayout.SetActive(true);
+                    StartCoroutine(iterateText("Selesaikan misi anda"));
+                }
+            }
             if(!isIterating)
             {
                 interactionLayout.SetActive(true);
+                StartCoroutine(iterateText("Tekan C untuk masuk ke dalam apartement"));
                 //StartCoroutine(iterateText(objectText));
             }
                 
-        }
-        else if(Input.GetKeyDown(KeyCode.C))
-        {
-            Debug.Log("Game Ended - Changing Scene ...");
-            OnTrigger();
-        }
+            }
+            else if(Input.GetKeyDown(KeyCode.C))
+            {
+                if(GameManager.instance.InteractPoint >= 1)
+                {
+                    Debug.Log("Game Ended - Changing Scene ...");
+                    OnTrigger();
+                }
+            
+            }
     }
    
     void OnTriggerEnter2D(Collider2D col)
     {
         popUp.SetActive(true);
+    }
+
+    void OnTriggerExit2D(Collider2D col)
+    {
+        interactionLayout.SetActive(false);
     }
 
    public void OnTrigger()

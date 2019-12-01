@@ -25,16 +25,27 @@ public class EndPointInteract_1 : MonoBehaviour, NPCInterface, NPCText<string>
     {
         if(Input.GetKeyDown(KeyCode.Z))
         {
+            if(GameManager.instance.InteractPoint < PlayerObjective.instance.interactPointRequired)
+            {
+                if(!isIterating)
+                {
+                    interactionLayout.SetActive(true);
+                    StartCoroutine(iterateText("Selesaikan misi anda"));
+                }
+            }
+            
             if(!isIterating)
             {
                 interactionLayout.SetActive(true);
-                StartCoroutine(iterateText(objectText));
+                StartCoroutine(iterateText("Tekan C untuk masuk ke dalam apartement"));
+                //StartCoroutine(iterateText(objectText));
             }
                 
         }
         else if(Input.GetKeyDown(KeyCode.C))
         {
             Debug.Log("Game Ended - Changing Scene ...");
+            GameManager.instance.InteractPoint = 0;
             SceneManager.LoadScene("SCENE_2");
         }
     }

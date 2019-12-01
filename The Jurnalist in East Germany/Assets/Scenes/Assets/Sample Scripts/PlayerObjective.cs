@@ -8,7 +8,10 @@ public class PlayerObjective : MonoBehaviour
     public string[] objectives;
     public Text objectiveText;
     public int objectiveId = 0;
-    public int interactPointRequired;
+    public int defaultInteractPoint;
+    public int interactPointRequired{
+        get; set;
+    }
     void Start()
     {
         if(instance == null)
@@ -23,11 +26,13 @@ public class PlayerObjective : MonoBehaviour
         //DontDestroyOnLoad(gameObject);
 
         setText(objectives[objectiveId]);
+        interactPointRequired = defaultInteractPoint;
     }
     public void nextObjective()
     {
         objectiveId++;
-        setText(objectives[objectiveId]);
+        if(objectiveId < objectives.Length)
+            setText(objectives[objectiveId]);
     }
 
     public void setText(string text)
