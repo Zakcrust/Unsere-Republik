@@ -7,10 +7,11 @@ public class CinematicInteract : MonoBehaviour, NPCInteractInterface, NPCText<st
 {
    public Camera camera;
    public int currentTextId;
+   public int eventTriggerId;
    private bool isIterating = false;
    private bool isInteracting = false;
    public string[] NPCText;
-   public MainCharacter mainCharacter;
+   public CameraMovement cameraMovement;
    public string positiveAnswer, negativeAnswer;
    public GameObject interactionLayout;
    public GameObject buttonLayout, popUp;
@@ -36,7 +37,10 @@ public class CinematicInteract : MonoBehaviour, NPCInteractInterface, NPCText<st
                 }
                 
                 //displayTextById(currentTextId);
-
+                if(currentTextId == eventTriggerId)
+                {
+                    ButtonOn();
+                }
                 if(currentTextId == NPCText.Length)
                 {
                 Invoke("finishConversation",2);
@@ -66,14 +70,16 @@ public class CinematicInteract : MonoBehaviour, NPCInteractInterface, NPCText<st
     void OnTriggerEnter2D(Collider2D col)
     {
         popUp.SetActive(true);
-        currentTextId = 0;
     }
 
    public void OnTrigger()
     {
-        mainCharacter.enabled = false;
+        currentTextId = 0;
+        cameraMovement.enabled = false;
         camera.transform.position = new Vector3(25,camera.transform.position.y,camera.transform.position.z);
         isInteracting = true;
+        interactionLayout.SetActive(true);
+        StartCoroutine(iterateText(NPCText[currentTextId]));
     }
    public void OffTrigger()
    {
@@ -82,6 +88,8 @@ public class CinematicInteract : MonoBehaviour, NPCInteractInterface, NPCText<st
    public void ButtonOn()
    {
        buttonLayout.SetActive(true);
+       positiveText.text = positiveAnswer;
+       negativeText.text = negativeAnswer;
    }
     public void setText(string text)
     {

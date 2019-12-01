@@ -2293,6 +2293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ff888e65db8ab74ea8a78a1cc09c6c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonLayout: {fileID: 1892481197}
 --- !u!4 &461402705
 Transform:
   m_ObjectHideFlags: 0
@@ -5988,7 +5989,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: ebc491a24689ec647bc3cb488d265744, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -9557,7 +9558,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectives:
   - Tanya orang sekitar
-  - Kembali ke apartemen
+  - ' '
   objectiveText: {fileID: 210413853}
   objectiveId: 0
   interactPointRequired: 1
@@ -10367,10 +10368,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camera: {fileID: 379162948}
   currentTextId: 0
+  eventTriggerId: 3
   NPCText:
-  - Commit Sudoku!
-  positiveAnswer: dada
-  negativeAnswer: sdadsa
+  - Diam kamu! Dasar pendeta tidak tahu diri kalau berani kamu akan ku tembak kepalamu.
+  - Maafkan saya pak. Tetapi mohon untuk tidak menghina agama kami pak.
+  - 'Huh. Dasar orang tidak tahu diri. '
+  - Pendeta ditembak oleh Tentara itu dan tergeletak di tengah jalan
+  cameraMovement: {fileID: 379162946}
+  positiveAnswer: Dia melawan pemerintah. Dia pantas mendapatkannya
+  negativeAnswer: Mengerikan. Tentara seharusnya melindungi warga bukan malah menyakitinya
   interactionLayout: {fileID: 1807090457}
   buttonLayout: {fileID: 1892481197}
   popUp: {fileID: 1192563183}

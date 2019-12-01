@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     private NPCInteract currentNPC;
+    public GameObject buttonLayout;
     private int _interactPoint = 0;
     private int PositiveScore = 0;
     private int NegativeScore = 0;
@@ -30,7 +31,10 @@ public class GameManager : MonoBehaviour
     {
         PositiveScore ++;
         Debug.Log("Positive Score : "+ PositiveScore);
-        currentNPC.Answered(true);
+        if(currentNPC != null)
+            currentNPC.Answered(true);
+        else
+            buttonLayout.SetActive(false);
         InteractPoint++;
         Debug.Log(InteractPoint);
         PlayerObjective.instance.checkPoint();
@@ -40,7 +44,10 @@ public class GameManager : MonoBehaviour
     {
         NegativeScore ++;
         Debug.Log("Negative Score : "+ NegativeScore);
-        currentNPC.Answered(false);
+        if(currentNPC != null)
+            currentNPC.Answered(false);
+        else
+            buttonLayout.SetActive(false);
         InteractPoint++;
         Debug.Log(InteractPoint);
         PlayerObjective.instance.checkPoint();
