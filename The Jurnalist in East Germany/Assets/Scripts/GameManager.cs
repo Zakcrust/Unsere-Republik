@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     private NPCInteract currentNPC;
+    public GameObject canvas;
     public GameObject buttonLayout;
     private int _interactPoint = 0;
     private int PositiveScore = 0;
@@ -26,6 +27,7 @@ public class GameManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(canvas);
     }
 
     void Update()
@@ -65,5 +67,13 @@ public class GameManager : MonoBehaviour
     {
         currentNPC = NPC;
         Debug.Log(currentNPC);
+    }
+
+    public void checkButtonLayout()
+    {
+        if(buttonLayout == null)
+        {
+            GameObject.FindWithTag("ButtonLayout");
+        }
     }
 }

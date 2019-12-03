@@ -13,9 +13,20 @@ public class CinematicInteract : MonoBehaviour, NPCInteractInterface, NPCText<st
    public string[] NPCText;
    public CameraMovement cameraMovement;
    public string positiveAnswer, negativeAnswer;
-   public GameObject interactionLayout, blackPanelLayout;
-   public GameObject buttonLayout, popUp;
-   public Text displayedText,positiveText,negativeText;
+   GameObject interactionLayout, blackPanelLayout;
+   GameObject buttonLayout, popUp;
+   Text displayedText,positiveText,negativeText;
+
+
+    void Start()
+    {
+        displayedText       = UIManager.instance.getDisplayText();
+        positiveText        = UIManager.instance.getPositiveText();
+        negativeText        = UIManager.instance.getNegativeText();
+        interactionLayout   = UIManager.instance.getInteractionLayout();
+        buttonLayout        = UIManager.instance.getButtonLayout();
+        blackPanelLayout    = UIManager.instance.getBlackPanel();
+    }
 
    void Update()
    {

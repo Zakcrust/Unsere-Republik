@@ -9,16 +9,21 @@ public class NPCInteract : MonoBehaviour, NPCInteractInterface, NPCInteractText<
     public string answeredNPCText;
     public string PositiveAnswer;
     public string NegativeAnswer;
-    public Text displayText, positiveText, negativeText;
+    Text displayText, positiveText, negativeText;
     public GameObject popUp;
-    public GameObject interactionLayout;
-    public GameObject buttonLayout;
+    GameObject interactionLayout;
+    GameObject buttonLayout;
     public int firstFeedbackAtId;
     public bool isAnswered = false;
     public int currentTextId = 0;
     private bool isIterating = false;
     void Start()
     {
+        displayText         = UIManager.instance.getDisplayText();
+        positiveText        = UIManager.instance.getPositiveText();
+        negativeText        = UIManager.instance.getNegativeText();
+        interactionLayout   = UIManager.instance.getInteractionLayout();
+        buttonLayout        = UIManager.instance.getButtonLayout();
         popUp.SetActive(false);
         interactionLayout.SetActive(false);
         buttonLayout.SetActive(false);

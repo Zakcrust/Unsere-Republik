@@ -6,10 +6,18 @@ using UnityEngine.SceneManagement;
 
 public class EndPointInteract_1 : MonoBehaviour, NPCInterface, NPCText<string>
 {
-    public GameObject interactionLayout, popUp;
-    public Text text;
+    public GameObject popUp;
+    Text displayedText;
     public string objectText;
     public bool isIterating = false;
+    GameObject interactionLayout;
+
+    void Start()
+    {
+        interactionLayout = UIManager.instance.getInteractionLayout();
+        displayedText = UIManager.instance.getDisplayText();
+    }
+
     public void OnTrigger()
     {
         interactionLayout.SetActive(true);
@@ -44,6 +52,8 @@ public class EndPointInteract_1 : MonoBehaviour, NPCInterface, NPCText<string>
         }
         else if(Input.GetKeyDown(KeyCode.C))
         {
+            if(GameManager.instance.InteractPoint < 2)
+                return;
             Debug.Log("Game Ended - Changing Scene ...");
             GameManager.instance.InteractPoint = 0;
             SceneManager.LoadScene("SCENE_2");
@@ -54,16 +64,16 @@ public class EndPointInteract_1 : MonoBehaviour, NPCInterface, NPCText<string>
         popUp.SetActive(false);
         interactionLayout.SetActive(false);
     }
-    public void setText(string text)
+    public void setText(string displayedText)
     {
-        this.text.text = text;
+        this.displayedText.text = displayedText;
     }
 
-    public IEnumerator iterateText(string text)
+    public IEnumerator iterateText(string displayedText)
     {
         isIterating = true;
         string temp = "";
-        foreach(char a in text)
+        foreach(char a in displayedText)
         {
             temp+= a;
             setText(temp);

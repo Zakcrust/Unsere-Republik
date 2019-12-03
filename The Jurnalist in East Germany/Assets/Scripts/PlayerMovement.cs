@@ -18,6 +18,8 @@ public class PlayerMovement : MonoBehaviour
         rigidBody2d = GetComponent <Rigidbody2D>();
         animator = GetComponent <Animator>();
         Vector3 playerScale = transform.localScale;
+
+        GameManager.instance.checkButtonLayout();
     }
 
     // Update is called once per frame
@@ -36,19 +38,19 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            if(animator.GetBool("isInteracting"))
+            if(animator.GetBool("isInteract"))
                 return;
             velocity.x += speed;
-            animator.SetBool("isMoving",true);
+            animator.SetBool("isWalking",true);
             playerSprite.flipX = true;
         }
 
         else if (Input.GetKey(KeyCode.LeftArrow))
         {
-            if(animator.GetBool("isInteracting"))
+            if(animator.GetBool("isInteract"))
                 return;
             velocity.x -= speed;
-            animator.SetBool("isMoving",true);
+            animator.SetBool("isWalking",true);
             playerSprite.flipX = false;
         }
 
@@ -56,25 +58,35 @@ public class PlayerMovement : MonoBehaviour
         {
             velocity.x = 0.0f;
             
-            if(animator.GetBool("isInteracting"))
+            if(animator.GetBool("isInteract"))
                 return;
-            animator.SetBool("isMoving",false);
+            animator.SetBool("isWalking",false);
         }
 
         if(Input.GetKeyDown(KeyCode.Z))
         {
-            animator.SetBool("isInteracting",true);
-            animator.SetTrigger("InteractAnim");
-            Invoke("finishInteract", 1);
+            animator.SetBool("isInteract",true);
+            Debug.Log("Interaction State :"+animator.GetBool("isInteract"));
+            StartCoroutine(finishInteract());
         }
 
         rigidBody2d.velocity += velocity;
 
     }
 
-    private void finishInteract()
-    {
-        animator.SetBool("isInteracting",false);
+    private IEnumerator finishInteract(){
+        for(int i =0; i < 2; i ++)
+        {
+            if(i == 1)
+            {
+                animator.SetBool("isInteract",false);
+                Debug.Log("Interaction State :"+animator.GetBool("isInteract"));
+            }
+            yield return new WaitForSeconds(0.5f);
+        }
+        
+        
+        
     }
 
 }
