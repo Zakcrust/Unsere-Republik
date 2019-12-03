@@ -9,5 +9,5 @@
 #### Kamal Zaki Abdurrafi    (Game Programmer)
 
 ## Thanks to :
-### [Dilo Academy](academy.dilo.id)
-### [Agate](agate.id)
+### [Dilo Academy](https://academy.dilo.id)
+### [Agate](https://agate.id)
