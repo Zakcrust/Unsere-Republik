@@ -1,5 +1,5 @@
 # Unsere Republik
-### Cari tahu bagaimana kehidupan seorang sastrawan dijerman timur era sosialis pada tahun 1989
+### Cari tahu bagaimana kehidupan seorang sastrawan di jerman timur era sosialis pada tahun 1989
 
 ## Credits :
 #### Alfa Wahyu Budianto     (Game Designer)
