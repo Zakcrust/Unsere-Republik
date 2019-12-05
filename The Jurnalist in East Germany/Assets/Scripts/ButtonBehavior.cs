@@ -9,7 +9,7 @@ public class ButtonBehavior : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     public void OnPointerEnter(PointerEventData pointerEventData)
     {
         pointer.SetActive(true);
-        pointer.transform.position = new Vector3(this.transform.position.x - 2*pointerOffsetX, this.transform.position.y + pointerOffsetY, this.transform.position.z);
+        pointer.transform.position = new Vector3(this.transform.position.x - 4*pointerOffsetX, this.transform.position.y + pointerOffsetY, this.transform.position.z);
     }
     public void OnPointerExit(PointerEventData pointerEventData)
     {

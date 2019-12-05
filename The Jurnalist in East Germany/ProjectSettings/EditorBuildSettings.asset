@@ -6,12 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SCENE_1.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
-    path: Assets/Scenes/SCENE_2.unity
-    guid: 50ef20c378602084ba7d0abbbcdd5ccf
-  - enabled: 1
     path: Assets/Scenes/SplashScreen.unity
     guid: 2e6f693e29894b14592f0570d1e1e144
   - enabled: 1
@@ -23,6 +17,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WritingScene.unity
     guid: 721768b3c3c213f4aa1e327f80a924ec
+  - enabled: 1
+    path: Assets/Scenes/SCENE_1.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/SCENE_2.unity
+    guid: 50ef20c378602084ba7d0abbbcdd5ccf
   - enabled: 1
     path: Assets/Scenes/EndingScene.unity
     guid: ee3ed41f14388d0488b753797be2852e
