@@ -8,7 +8,8 @@ public class PlayerObjective : MonoBehaviour
     public string[] objectives;
     public Text objectiveText;
     public int objectiveId = 0;
-    public int defaultInteractPoint;
+    private int currentInteractPoint = 0;
+    public int[] defaultInteractPoint;
     public int interactPointRequired{
         get; set;
     }
@@ -24,29 +25,35 @@ public class PlayerObjective : MonoBehaviour
         }
 
         //DontDestroyOnLoad(gameObject);
-
+        objectiveId = 0;
         setText(objectives[objectiveId]);
-        interactPointRequired = defaultInteractPoint;
+        interactPointRequired = defaultInteractPoint[0];
     }
-    public void nextObjective()
+
+    public int getInteractPoint()
     {
-        objectiveId++;
-        if(objectiveId < objectives.Length)
-            setText(objectives[objectiveId]);
+        return interactPointRequired;
+    }
+
+    public int getObjectiveId()
+    {
+        return objectiveId;
+    }
+    public virtual void nextObjective()
+    {
+        
+            objectiveId++;
+            if(objectiveId < objectives.Length)
+            {
+                setText(objectives[objectiveId]);
+                if(objectiveId < defaultInteractPoint.Length)
+                    interactPointRequired = defaultInteractPoint[objectiveId];
+            }        
+            
     }
 
     public void setText(string text)
     {
         objectiveText.text = text;
-    }
-
-    public void checkPoint()
-    {
-        Debug.Log("Current Interact Point : "+GameManager.instance.InteractPoint);
-        Debug.Log("Required Interact Point : "+interactPointRequired);
-        if(GameManager.instance.InteractPoint >= interactPointRequired)
-        {
-            nextObjective();
-        }
     }
 }

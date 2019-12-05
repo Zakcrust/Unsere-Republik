@@ -5,15 +5,34 @@ using UnityEngine.UI;
 
 public class EndingScene : MonoBehaviour
 {
-    public List<Text> textList;
+    public string[] textList;
     public Text textPos;
-    public List<Image> imageList;
+    public List<Sprite> imageList;
     public Image imagePos;
     private int index;
 
-    public void ChangeText()
+    void Start()
     {
-        textPos.text = textList[0].text;
-        imagePos.sprite = imageList[0].sprite;
+        if(GameManager.instance.getPositiveScore() > GameManager.instance.getNegativeScore())
+        {
+            index = 0;
+        }
+        else if(GameManager.instance.getNegativeScore() > GameManager.instance.getPositiveScore())
+        {
+            index = 1;
+        }
+        else
+        {
+            index = 1;
+        }
+
+        ChangeText(index);
     }
+
+    public void ChangeText(int id)
+    {
+        textPos.text = textList[id];
+        imagePos.sprite = imageList[id];
+    }
+
 }

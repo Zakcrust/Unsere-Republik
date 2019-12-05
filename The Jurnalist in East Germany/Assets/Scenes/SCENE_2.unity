@@ -1132,12 +1132,7 @@ MonoBehaviour:
   PositiveAnswer: Hmm seperti itu ya. Terima kasih atas komentar Anda.
   NegativeAnswer: Saya kurang yakin dengan pendapat Anda. Soalnya melihat beberapa
     sektor kondisi tidak sesuai dengan realita.
-  displayText: {fileID: 205739891}
-  positiveText: {fileID: 1305373974}
-  negativeText: {fileID: 1624636039}
   popUp: {fileID: 1826814400}
-  interactionLayout: {fileID: 1807090457}
-  buttonLayout: {fileID: 1892481197}
   firstFeedbackAtId: 5
   isAnswered: 1
   currentTextId: 0
@@ -1847,12 +1842,7 @@ MonoBehaviour:
   PositiveAnswer: Hmm seperti itu ya. Terima kasih atas komentar Anda.
   NegativeAnswer: Saya kurang yakin dengan pendapat Anda. Soalnya melihat beberapa
     sektor kondisi tidak sesuai dengan realita.
-  displayText: {fileID: 205739891}
-  positiveText: {fileID: 1305373974}
-  negativeText: {fileID: 1624636039}
   popUp: {fileID: 1765399592}
-  interactionLayout: {fileID: 1807090457}
-  buttonLayout: {fileID: 1892481197}
   firstFeedbackAtId: 5
   isAnswered: 1
   currentTextId: 0
@@ -2701,12 +2691,7 @@ MonoBehaviour:
   PositiveAnswer: Hmm seperti itu ya. Terima kasih atas komentar Anda.
   NegativeAnswer: Saya kurang yakin dengan pendapat Anda. Soalnya melihat beberapa
     sektor kondisi tidak sesuai dengan realita.
-  displayText: {fileID: 205739891}
-  positiveText: {fileID: 1305373974}
-  negativeText: {fileID: 1624636039}
   popUp: {fileID: 2048710214}
-  interactionLayout: {fileID: 1807090457}
-  buttonLayout: {fileID: 1892481197}
   firstFeedbackAtId: 5
   isAnswered: 1
   currentTextId: 0
@@ -2956,12 +2941,7 @@ MonoBehaviour:
   PositiveAnswer: Hmm seperti itu ya. Terima kasih atas komentar Anda.
   NegativeAnswer: Saya kurang yakin dengan pendapat Anda. Soalnya melihat beberapa
     sektor kondisi tidak sesuai dengan realita.
-  displayText: {fileID: 205739891}
-  positiveText: {fileID: 1305373974}
-  negativeText: {fileID: 1624636039}
   popUp: {fileID: 1675678534}
-  interactionLayout: {fileID: 1807090457}
-  buttonLayout: {fileID: 1892481197}
   firstFeedbackAtId: 5
   isAnswered: 1
   currentTextId: 0
@@ -3422,12 +3402,7 @@ MonoBehaviour:
     jurnal.
   NegativeAnswer: Mengapa bapak sangat yakin bahwa Negara Sosialisme Jerman Timur
     bukan tandingan dari negara kapitalis?
-  displayText: {fileID: 205739891}
-  positiveText: {fileID: 1305373974}
-  negativeText: {fileID: 1624636039}
   popUp: {fileID: 1101701629}
-  interactionLayout: {fileID: 1807090457}
-  buttonLayout: {fileID: 1892481197}
   firstFeedbackAtId: 5
   isAnswered: 0
   currentTextId: 0
@@ -4404,7 +4379,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: ad8c9275568488b4b963d70531eff834, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4424,7 +4399,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 943004153}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25.49, y: -1.55, z: -12.111328}
+  m_LocalPosition: {x: 25.49, y: -1.55, z: 0}
   m_LocalScale: {x: 2.5, y: 2.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5226,12 +5201,7 @@ MonoBehaviour:
   PositiveAnswer: Hmm seperti itu ya. Terima kasih atas komentar Anda.
   NegativeAnswer: Saya kurang yakin dengan pendapat Anda. Soalnya melihat beberapa
     sektor kondisi tidak sesuai dengan realita.
-  displayText: {fileID: 205739891}
-  positiveText: {fileID: 1305373974}
-  negativeText: {fileID: 1624636039}
   popUp: {fileID: 1895430679}
-  interactionLayout: {fileID: 1807090457}
-  buttonLayout: {fileID: 1892481197}
   firstFeedbackAtId: 5
   isAnswered: 1
   currentTextId: 0
@@ -5879,12 +5849,7 @@ MonoBehaviour:
   PositiveAnswer: Hmm seperti itu ya. Terima kasih atas komentar Anda.
   NegativeAnswer: Saya kurang yakin dengan pendapat Anda. Soalnya melihat beberapa
     sektor kondisi tidak sesuai dengan realita.
-  displayText: {fileID: 205739891}
-  positiveText: {fileID: 1305373974}
-  negativeText: {fileID: 1624636039}
   popUp: {fileID: 957233475}
-  interactionLayout: {fileID: 1807090457}
-  buttonLayout: {fileID: 1892481197}
   firstFeedbackAtId: 5
   isAnswered: 1
   currentTextId: 0
@@ -7075,7 +7040,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: ad8c9275568488b4b963d70531eff834, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -7095,7 +7060,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1501483537}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26.02, y: -2.49, z: -12.111328}
+  m_LocalPosition: {x: 26.02, y: -2.49, z: 0}
   m_LocalScale: {x: 2.5, y: 2.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -7376,12 +7341,7 @@ MonoBehaviour:
   PositiveAnswer: Hmm seperti itu ya. Terima kasih atas komentar Anda.
   NegativeAnswer: Saya kurang yakin dengan pendapat Anda. Soalnya melihat beberapa
     sektor kondisi tidak sesuai dengan realita.
-  displayText: {fileID: 205739891}
-  positiveText: {fileID: 1305373974}
-  negativeText: {fileID: 1624636039}
   popUp: {fileID: 362674691}
-  interactionLayout: {fileID: 1807090457}
-  buttonLayout: {fileID: 1892481197}
   firstFeedbackAtId: 5
   isAnswered: 1
   currentTextId: 0
@@ -7631,12 +7591,7 @@ MonoBehaviour:
   PositiveAnswer: Hmm seperti itu ya. Terima kasih atas komentar Anda.
   NegativeAnswer: Saya kurang yakin dengan pendapat Anda. Soalnya melihat beberapa
     sektor kondisi tidak sesuai dengan realita.
-  displayText: {fileID: 205739891}
-  positiveText: {fileID: 1305373974}
-  negativeText: {fileID: 1624636039}
   popUp: {fileID: 825284389}
-  interactionLayout: {fileID: 1807090457}
-  buttonLayout: {fileID: 1892481197}
   firstFeedbackAtId: 5
   isAnswered: 1
   currentTextId: 0
@@ -8162,7 +8117,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: ad8c9275568488b4b963d70531eff834, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -8182,7 +8137,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1666468365}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25.93, y: -2.09, z: -12.111328}
+  m_LocalPosition: {x: 25.93, y: -2.09, z: 0}
   m_LocalScale: {x: 2.5, y: 2.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -8543,12 +8498,7 @@ MonoBehaviour:
   PositiveAnswer: Hmm seperti itu ya. Terima kasih atas komentar Anda.
   NegativeAnswer: Saya kurang yakin dengan pendapat Anda. Soalnya melihat beberapa
     sektor kondisi tidak sesuai dengan realita.
-  displayText: {fileID: 205739891}
-  positiveText: {fileID: 1305373974}
-  negativeText: {fileID: 1624636039}
   popUp: {fileID: 573790963}
-  interactionLayout: {fileID: 1807090457}
-  buttonLayout: {fileID: 1892481197}
   firstFeedbackAtId: 5
   isAnswered: 1
   currentTextId: 0
@@ -8839,12 +8789,7 @@ MonoBehaviour:
   PositiveAnswer: Hmm seperti itu ya. Terima kasih atas komentar Anda.
   NegativeAnswer: Saya kurang yakin dengan pendapat Anda. Soalnya melihat beberapa
     sektor kondisi tidak sesuai dengan realita.
-  displayText: {fileID: 205739891}
-  positiveText: {fileID: 1305373974}
-  negativeText: {fileID: 1624636039}
   popUp: {fileID: 1491062924}
-  interactionLayout: {fileID: 1807090457}
-  buttonLayout: {fileID: 1892481197}
   firstFeedbackAtId: 5
   isAnswered: 1
   currentTextId: 0
@@ -9598,7 +9543,7 @@ MonoBehaviour:
   - ' '
   objectiveText: {fileID: 210413853}
   objectiveId: 0
-  defaultInteractPoint: 1
+  defaultInteractPoint: 0100000002000000
 --- !u!4 &1941941929
 Transform:
   m_ObjectHideFlags: 0
@@ -10033,12 +9978,7 @@ MonoBehaviour:
   PositiveAnswer: Hmm seperti itu ya. Terima kasih atas komentar Anda.
   NegativeAnswer: Saya kurang yakin dengan pendapat Anda. Soalnya melihat beberapa
     sektor kondisi tidak sesuai dengan realita.
-  displayText: {fileID: 205739891}
-  positiveText: {fileID: 1305373974}
-  negativeText: {fileID: 1624636039}
   popUp: {fileID: 1068311308}
-  interactionLayout: {fileID: 1807090457}
-  buttonLayout: {fileID: 1892481197}
   firstFeedbackAtId: 5
   isAnswered: 1
   currentTextId: 0
@@ -10258,7 +10198,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2040770834}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.3, y: -0.6, z: -17.136719}
+  m_LocalPosition: {x: 13.3, y: -0.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1192563184}
@@ -10314,13 +10254,6 @@ MonoBehaviour:
   cameraMovement: {fileID: 379162946}
   positiveAnswer: Dia melawan pemerintah. Dia pantas mendapatkannya
   negativeAnswer: Mengerikan. Tentara seharusnya melindungi warga bukan malah menyakitinya
-  interactionLayout: {fileID: 1807090457}
-  blackPanelLayout: {fileID: 2071410471}
-  buttonLayout: {fileID: 1892481197}
-  popUp: {fileID: 1192563183}
-  displayedText: {fileID: 205739891}
-  positiveText: {fileID: 1305373974}
-  negativeText: {fileID: 1624636039}
 --- !u!1 &2048710214
 GameObject:
   m_ObjectHideFlags: 0

@@ -104,6 +104,7 @@ public class CinematicInteract : MonoBehaviour, NPCInteractInterface, NPCText<st
 
    public void OnTrigger()
     {
+        GameManager.instance.setGameEnd(true);
         currentTextId = 0;
         cameraMovement.enabled = false;
         camera.transform.position = new Vector3(25,camera.transform.position.y,camera.transform.position.z);

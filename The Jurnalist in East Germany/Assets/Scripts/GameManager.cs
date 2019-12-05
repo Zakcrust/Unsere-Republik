@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    private bool gameEnd;
     private NPCInteract currentNPC;
     public GameObject canvas;
     public GameObject buttonLayout;
@@ -47,7 +48,19 @@ public class GameManager : MonoBehaviour
             buttonLayout.SetActive(false);
         InteractPoint++;
         Debug.Log(InteractPoint);
-        PlayerObjective.instance.checkPoint();
+        if(gameEnd)
+            {
+                SceneManager.LoadScene("EndingScene");
+            }
+        if(InteractPoint >= PlayerObjective.instance.getInteractPoint())
+        {
+            
+            if(PlayerObjective.instance.getObjectiveId() == 0)
+            {
+                PlayerObjective.instance.nextObjective();
+            }
+
+        }
     }
 
     public void substractScore()
@@ -60,7 +73,19 @@ public class GameManager : MonoBehaviour
             buttonLayout.SetActive(false);
         InteractPoint++;
         Debug.Log(InteractPoint);
-        PlayerObjective.instance.checkPoint();
+        if(gameEnd)
+            {
+                SceneManager.LoadScene("EndingScene");
+            }
+        if(InteractPoint >= PlayerObjective.instance.getInteractPoint())
+        {
+            
+            if(PlayerObjective.instance.getObjectiveId() == 0)
+            {
+                PlayerObjective.instance.nextObjective();
+            }
+
+        }
     }
 
     public void setCurrentNPC(NPCInteract NPC)
@@ -75,5 +100,25 @@ public class GameManager : MonoBehaviour
         {
             GameObject.FindWithTag("ButtonLayout");
         }
+    }
+
+    public void setGameEnd(bool condition)
+    {
+        gameEnd = condition;
+    }
+
+    public bool getGameEnd()
+    {
+        return gameEnd;
+    }
+
+    public int getPositiveScore()
+    {
+        return PositiveScore;
+    }
+
+    public int getNegativeScore()
+    {
+        return NegativeScore;
     }
 }
